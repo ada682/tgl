@@ -42,11 +42,11 @@ function App() {
     setError('');
 
     try {
-      const response = await axios.post('http://178.128.91.32:5000/api/calculate', {
-        market,
-        numbers,
-        method
-      });
+        const response = await axios.post('/api/calculate', {
+          market,
+          numbers: inputNumbers.split(',').map(Number),
+          method
+        });
       setResult(response.data);
     } catch (err) {
       setError('Failed to calculate. Please try again.');
